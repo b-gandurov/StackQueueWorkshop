@@ -22,21 +22,6 @@ namespace StackQueueWorkshop.Queue
             }
         }
 
-        public int Head
-        {
-            get
-            {
-                return head;
-            }
-        }
-
-        public int Capacity
-        {
-            get
-            {
-                return capacity;
-            }
-        }
 
         public bool IsEmpty
         {

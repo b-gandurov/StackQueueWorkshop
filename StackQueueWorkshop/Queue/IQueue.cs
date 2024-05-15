@@ -7,8 +7,6 @@ namespace StackQueueWorkshop.Queue
     public interface IQueue<T>
     {
         int Size { get; }
-        int Capacity { get; }
-        int Head { get; }
 
         bool IsEmpty { get; }
 
