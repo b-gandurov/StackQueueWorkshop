@@ -68,7 +68,7 @@ namespace StackQueueWorkshop.Queue
 
         public void Resize(int newCapacity)
         {
-            T[] newArrayQueue = new T[items.Length * 2];
+            T[] newArrayQueue = new T[newCapacity];
             for (int i = 0; i < count; i++)
             {
                 newArrayQueue[i] = items[i];

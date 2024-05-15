@@ -8,7 +8,6 @@ namespace StackQueueWorkshop.Stack
     {
         private Node<T> top;
         private int size;
-        private Node<T> previus;
 
         public int Size
         {
@@ -30,7 +29,7 @@ namespace StackQueueWorkshop.Stack
         {
             Node<T> newNode = new Node<T>();
             newNode.Data = element;
-            previus = top;
+            newNode.Next = top;
             top = newNode;
             size++;
         }
@@ -43,7 +42,7 @@ namespace StackQueueWorkshop.Stack
             }
 
             T element = top.Data;
-            top = previus;
+            top = top.Next;
             size--;
             return element;
         }

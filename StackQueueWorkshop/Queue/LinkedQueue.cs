@@ -29,27 +29,31 @@ namespace StackQueueWorkshop.Queue
         {
             Node<T> newNode = new Node<T>();
             newNode.Data = element;
-            size++;
-            
-            if(head == null)
+
+            if (IsEmpty)
             {
                 head = newNode;
+                tail = newNode;
             }
             else
             {
+                tail.Next = newNode;
                 tail = newNode;
             }
+            size++;
         }
 
         public T Dequeue()
         {
             if (IsEmpty)
             {
-                throw new InvalidOperationException("Queue not Empty.");
+                throw new InvalidOperationException("Queue is Empty.");
             }
+
             T element = head.Data;
             head = head.Next;
             size--;
+
             return element;
         }
 
@@ -57,7 +61,7 @@ namespace StackQueueWorkshop.Queue
         {
             if (IsEmpty)
             {
-                throw new InvalidOperationException("Queue not Empty.");
+                throw new InvalidOperationException("Queue is Empty.");
             }
 
             return head.Data;
