@@ -8,12 +8,13 @@ namespace StackQueueWorkshop.Stack
     {
         private Node<T> top;
         private int size;
+        private Node<T> previus;
 
         public int Size
         {
             get
             {
-                throw new NotImplementedException();
+                return size;
             }
         }
 
@@ -21,23 +22,39 @@ namespace StackQueueWorkshop.Stack
         {
             get
             {
-                throw new NotImplementedException();
+                return size == 0;
             }
         }
 
         public void Push(T element)
         {
-            throw new NotImplementedException();
+            Node<T> newNode = new Node<T>();
+            newNode.Data = element;
+            previus = top;
+            top = newNode;
+            size++;
         }
 
         public T Pop()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Stack is empty.");
+            }
+
+            T element = top.Data;
+            top = previus;
+            size--;
+            return element;
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Stack is empty.");
+            }
+            return top.Data;
         }
     }
 }

@@ -13,7 +13,7 @@ namespace StackQueueWorkshop.Queue
         {
             get
             {
-                throw new NotImplementedException();
+                return size;
             }
         }
 
@@ -21,23 +21,47 @@ namespace StackQueueWorkshop.Queue
         {
             get
             {
-                throw new NotImplementedException();
+                return size == 0;
             }
         }
 
         public void Enqueue(T element)
         {
-            throw new NotImplementedException();
+            Node<T> newNode = new Node<T>();
+            newNode.Data = element;
+            size++;
+            
+            if(head == null)
+            {
+                head = newNode;
+            }
+            else
+            {
+                tail = newNode;
+            }
         }
 
         public T Dequeue()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Queue not Empty.");
+            }
+            T element = head.Data;
+            head = head.Next;
+            size--;
+            return element;
         }
 
         public T Peek()
         {
-            throw new NotImplementedException();
+            if (IsEmpty)
+            {
+                throw new InvalidOperationException("Queue not Empty.");
+            }
+
+            return head.Data;
+
         }
     }
 }
